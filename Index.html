@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UrbanNest PG | Premium Living</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8fafc;
+    color:#172033;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:800;
+    color:#152238;
+}
+
+.logo-text span{
+    color:#0f8b8d;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#394458;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#0f8b8d;
+}
+
+.nav-btn{
+    background:#0f8b8d;
+    color:white !important;
+    padding:11px 18px;
+    border-radius:8px;
+}
+
+.menu{
+    display:none;
+    font-size:27px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+    linear-gradient(90deg,rgba(8,20,35,.85),rgba(8,20,35,.35)),
+    url("https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content{
+    color:white;
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.3);
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.08;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#55d6be;
+}
+
+.hero p{
+    font-size:18px;
+    color:#e7edf2;
+    max-width:580px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:700;
+    display:inline-block;
+}
+
+.btn-primary{
+    background:#0f8b8d;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#0b7375;
+}
+
+.btn-light{
+    background:white;
+    color:#172033;
+}
+
+/* QUICK INFO */
+
+.quick-info{
+    margin-top:-45px;
+    position:relative;
+    z-index:5;
+}
+
+.info-box{
+    background:white;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    border-radius:14px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    overflow:hidden;
+}
+
+.info-item{
+    padding:22px;
+    text-align:center;
+    border-right:1px solid #eee;
+}
+
+.info-item:last-child{
+    border-right:0;
+}
+
+.info-icon{
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.info-item h3{
+    font-size:15px;
+}
+
+.info-item p{
+    color:#778092;
+    font-size:13px;
+}
+
+/* COMMON */
+
+section{
+    padding:90px 0;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-heading small{
+    color:#0f8b8d;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-heading h2{
+    font-size:38px;
+    margin:8px 0;
+}
+
+.section-heading p{
+    color:#718096;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-image{
+    height:450px;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.about-text h2{
+    font-size:38px;
+    margin:10px 0 18px;
+}
+
+.about-text p{
+    color:#687386;
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+    margin:22px 0;
+}
+
+.check-list li{
+    margin:12px 0;
+    font-weight:600;
+}
+
+.check-list li::before{
+    content:"✓";
+    color:#0f8b8d;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+/* ROOMS */
+
+.rooms{
+    background:#f1f5f9;
+}
+
+.room-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.room-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.room-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.room-image{
+    height:230px;
+    position:relative;
+}
+
+.room-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.room-tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#0f8b8d;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.room-content{
+    padding:22px;
+}
+
+.room-content h3{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.room-content p{
+    color:#748093;
+    font-size:14px;
+}
+
+.room-bottom{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.price{
+    color:#0f8b8d;
+    font-size:21px;
+    font-weight:800;
+}
+
+.price small{
+    color:#8993a3;
+    font-size:12px;
+    font-weight:normal;
+}
+
+/* FACILITIES */
+
+.facility-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.facility{
+    background:white;
+    border:1px solid #e7ebef;
+    border-radius:14px;
+    padding:27px 15px;
+    text-align:center;
+    transition:.3s;
+}
+
+.facility:hover{
+    border-color:#0f8b8d;
+    transform:translateY(-4px);
+}
+
+.facility-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.facility h3{
+    font-size:16px;
+}
+
+.facility p{
+    color:#7b8594;
+    font-size:13px;
+}
+
+/* GALLERY */
+
+.gallery{
+    background:#f1f5f9;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    grid-template-rows:220px 220px;
+    gap:12px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.gallery-main{
+    grid-row:1 / 3;
+}
+
+/* LOCATION */
+
+.location-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.location-card{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    border:1px solid #e7ebef;
+}
+
+.location-card h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.location-card p{
+    color:#6d7889;
+    margin:10px 0;
+}
+
+.map{
+    min-height:300px;
+    border-radius:15px;
+    background:
+    linear-gradient(rgba(15,139,141,.15),rgba(15,139,141,.15)),
+    url("https://images.unsplash.com/photo-1524666041070-9f9b1b808d1c?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.map-button{
+    background:white;
+    color:#0f8b8d;
+    padding:14px 22px;
+    border-radius:8px;
+    font-weight:bold;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+/* CTA */
+
+.cta{
+    padding:70px 0;
+    background:#102a43;
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.cta p{
+    color:#cbd5e1;
+    margin-bottom:25px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.contact-card{
+    background:white;
+    padding:32px;
+    border-radius:15px;
+    border:1px solid #e7ebef;
+}
+
+.contact-card h3{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.contact-item{
+    display:flex;
+    gap:14px;
+    margin:18px 0;
+}
+
+.contact-item span{
+    font-size:22px;
+}
+
+.contact-item p{
+    color:#6e798a;
+}
+
+form input,
+form select,
+form textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    margin-bottom:14px;
+    font-size:14px;
+    outline:none;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus{
+    border-color:#0f8b8d;
+}
+
+form textarea{
+    height:120px;
+    resize:none;
+}
+
+form button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    background:#0f8b8d;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#091725;
+    color:white;
+    padding:45px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:35px;
+}
+
+footer h3{
+    margin-bottom:15px;
+}
+
+footer p,
+footer a{
+    color:#9eabb8;
+    font-size:14px;
+}
+
+footer a{
+    display:block;
+    margin:8px 0;
+}
+
+.copyright{
+    border-top:1px solid #20303f;
+    padding-top:20px;
+    text-align:center;
+    color:#82909e;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .container{
+        width:92%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .info-box{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .info-item:nth-child(2){
+        border-right:0;
+    }
+
+    .info-item:nth-child(3),
+    .info-item:nth-child(4){
+        border-top:1px solid #eee;
+    }
+
+    .about-grid,
+    .location-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .room-grid{
+        grid-template-columns:1fr;
+    }
+
+    .facility-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:180px 180px 180px;
+    }
+
+    .gallery-main{
+        grid-column:1 / 3;
+        grid-row:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .about-image{
+        height:320px;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .section-heading h2{
+        font-size:30px;
+    }
+}
+
+@media(max-width:450px){
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        text-align:center;
+    }
+
+    .facility-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-item{
+        padding:18px 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+<div class="container navbar">
+
+    <div class="logo">
+        <!-- Your existing logo -->
+        <img src="logo.png" alt="PG Logo">
+        <div class="logo-text">
+            Urban<span>Nest</span> PG
+        </div>
+    </div>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+    </nav>
+
+    <div class="menu">☰</div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+    <div class="hero-content">
+
+        <span class="badge">PREMIUM PG ACCOMMODATION</span>
+
+        <h1>
+            Live Better.<br>
+            Live <span>Comfortably.</span>
+        </h1>
+
+        <p>
+            A safe, clean and modern living space designed
+            for students and working professionals.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#rooms" class="btn btn-primary">
+                Explore Rooms
+            </a>
+
+            <a href="#contact" class="btn btn-light">
+                Enquire Now
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- QUICK INFO -->
+
+<div class="quick-info">
+<div class="container">
+
+<div class="info-box">
+
+    <div class="info-item">
+        <div class="info-icon">📍</div>
+        <h3>Prime Location</h3>
+        <p>Easy access to city</p>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">🔐</div>
+        <h3>24/7 Security</h3>
+        <p>Safe environment</p>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">📶</div>
+        <h3>High Speed Wi-Fi</h3>
+        <p>Stay connected</p>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">🍽️</div>
+        <h3>Quality Food</h3>
+        <p>Healthy meals</p>
+    </div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+    <div class="about-image">
+        <img
+        src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85"
+        alt="Comfortable PG Room">
+    </div>
+
+    <div class="about-text">
+
+        <small style="color:#0f8b8d;font-weight:bold;letter-spacing:2px;">
+            ABOUT US
+        </small>
+
+        <h2>Your Home Away From Home</h2>
+
+        <p>
+            We believe a PG should feel more than just a place
+            to stay. Our spaces are designed to provide comfort,
+            privacy, safety and convenience.
+        </p>
+
+        <p>
+            Whether you are a student or a working professional,
+            we make everyday living simple and comfortable.
+        </p>
+
+        <ul class="check-list">
+            <li>Clean and comfortable rooms</li>
+            <li>Safe and secure environment</li>
+            <li>Convenient location</li>
+            <li>Essential modern facilities</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-primary">
+            Get In Touch
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ROOMS -->
+
+<section class="rooms" id="rooms">
+
+<div class="container">
+
+<div class="section-heading">
+    <small>ACCOMMODATION</small>
+    <h2>Choose Your Room</h2>
+    <p>Comfortable spaces for every lifestyle and budget.</p>
+</div>
+
+<div class="room-grid">
+
+    <!-- ROOM 1 -->
+
+    <div class="room-card">
+
+        <div class="room-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
+            alt="Single Sharing Room">
+
+            <span class="room-tag">PREMIUM</span>
+
+        </div>
+
+        <div class="room-content">
+
+            <h3>Single Sharing</h3>
+
+            <p>
+                Private room with comfortable bed,
+                wardrobe and study space.
+            </p>
+
+            <div class="room-bottom">
+
+                <div class="price">
+                    ₹12,000 <small>/ month</small>
+                </div>
+
+                <a href="#contact" class="btn btn-primary">
+                    Enquire
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ROOM 2 -->
+
+    <div class="room-card">
+
+        <div class="room-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=85"
+            alt="Double Sharing Room">
+
+            <span class="room-tag">POPULAR</span>
+
+        </div>
+
+        <div class="room-content">
+
+            <h3>Double Sharing</h3>
+
+            <p>
+                Spacious and comfortable room
+                suitable for two residents.
+            </p>
+
+            <div class="room-bottom">
+
+                <div class="price">
+                    ₹8,000 <small>/ month</small>
+                </div>
+
+                <a href="#contact" class="btn btn-primary">
+                    Enquire
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ROOM 3 -->
+
+    <div class="room-card">
+
+        <div class="room-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85"
+            alt="Triple Sharing Room">
+
+            <span class="room-tag">VALUE</span>
+
+        </div>
+
+        <div class="room-content">
+
+            <h3>Triple Sharing</h3>
+
+            <p>
+                Budget-friendly room with
+                comfortable shared accommodation.
+            </p>
+
+            <div class="room-bottom">
+
+                <div class="price">
+                    ₹6,000 <small>/ month</small>
+                </div>
+
+                <a href="#contact" class="btn btn-primary">
+                    Enquire
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FACILITIES -->
+
+<section id="facilities">
+
+<div class="container">
+
+<div class="section-heading">
+    <small>FACILITIES</small>
+    <h2>Everything You Need</h2>
+    <p>Designed for a comfortable and convenient lifestyle.</p>
+</div>
+
+<div class="facility-grid">
+
+    <div class="facility">
+        <div class="facility-icon">📶</div>
+        <h3>Free Wi-Fi</h3>
+        <p>High-speed internet</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">🍽️</div>
+        <h3>Food</h3>
+        <p>Healthy daily meals</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">🔒</div>
+        <h3>Security</h3>
+        <p>Safe environment</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">📹</div>
+        <h3>CCTV</h3>
+        <p>24/7 monitoring</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">🚿</div>
+        <h3>Hot Water</h3>
+        <p>Daily hot water</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">⚡</div>
+        <h3>Power Backup</h3>
+        <p>Reliable electricity</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">🅿️</div>
+        <h3>Parking</h3>
+        <p>Vehicle parking</p>
+    </div>
+
+    <div class="facility">
+        <div class="facility-icon">🧹</div>
+        <h3>Housekeeping</h3>
+        <p>Regular cleaning</p>
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+<div class="container">
+
+<div class="section-heading">
+    <small>OUR SPACE</small>
+    <h2>Explore Our PG</h2>
+    <p>A glimpse of comfortable modern living.</p>
+</div>
+
+<div class="gallery-grid">
+
+    <img
+    class="gallery-main"
+    src="https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1200&q=85"
+    alt="PG Interior">
+
+    <img
+    src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85"
+    alt="Bedroom">
+
+    <img
+    src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85"
+    alt="Living Space">
+
+    <img
+    src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=85"
+    alt="Modern Room">
+
+    <img
+    src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=800&q=85"
+    alt="Kitchen">
+
+</div>
+
+</div>
+</section>
+
+
+<!-- LOCATION -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+    <small>LOCATION</small>
+    <h2>Everything Nearby</h2>
+    <p>Conveniently located close to essential places.</p>
+</div>
+
+<div class="location-grid">
+
+    <div class="location-card">
+
+        <h3>📍 Our Location</h3>
+
+        <p>
+            Your PG Address<br>
+            Tirupati, Andhra Pradesh
+        </p>
+
+        <p>🎓 Near Colleges & Universities</p>
+        <p>🏢 Near Offices & Business Areas</p>
+        <p>🛒 Shopping & Daily Needs Nearby</p>
+        <p>🚌 Easy Transportation</p>
+
+        <a
+        href="https://www.google.com/maps"
+        target="_blank"
+        class="btn btn-primary">
+            Open Google Maps
+        </a>
+
+    </div>
+
+    <div class="map">
+
+        <a
+        href="https://www.google.com/maps"
+        target="_blank"
+        class="map-button">
+            📍 View Location
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+    <h2>Ready to Find Your New Home?</h2>
+
+    <p>
+        Contact us today and check room availability.
+    </p>
+
+    <!-- Change the WhatsApp number -->
+    <a
+    href="https://wa.me/91XXXXXXXXXX"
+    target="_blank"
+    class="btn btn-light">
+        💬 WhatsApp Us
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-heading">
+    <small>CONTACT</small>
+    <h2>Let's Talk</h2>
+    <p>Have questions? We are here to help.</p>
+</div>
+
+<div class="contact-grid">
+
+    <div class="contact-card">
+
+        <h3>Get In Touch</h3>
+
+        <div class="contact-item">
+            <span>📞</span>
+            <div>
+                <strong>Phone</strong>
+                <p>+91 XXXXX XXXXX</p>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span>💬</span>
+            <div>
+                <strong>WhatsApp</strong>
+                <p>Available for enquiries</p>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span>📧</span>
+            <div>
+                <strong>Email</strong>
+                <p>yourpg@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span>📍</span>
+            <div>
+                <strong>Address</strong>
+                <p>Your PG Address, Tirupati</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="contact-card">
+
+        <h3>Send An Enquiry</h3>
+
+        <form onsubmit="sendWhatsApp(event)">
+
+            <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required>
+
+            <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required>
+
+            <select id="room" required>
+                <option value="">Select Room Type</option>
+                <option>Single Sharing</option>
+                <option>Double Sharing</option>
+                <option>Triple Sharing</option>
+            </select>
+
+            <input
+            type="date"
+            id="date"
+            required>
+
+            <textarea
+            id="message"
+            placeholder="Your message"></textarea>
+
+            <button type="submit">
+                Send Enquiry on WhatsApp
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+    <div>
+        <h3>UrbanNest PG</h3>
+        <p>
+            Comfortable, safe and affordable accommodation
+            for students and working professionals.
+        </p>
+    </div>
+
+    <div>
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>📞 +91 XXXXX XXXXX</p>
+        <p>📍 Tirupati, Andhra Pradesh</p>
+        <p>📧 yourpg@gmail.com</p>
+    </div>
+
+</div>
+
+<div class="copyright">
+    © 2026 UrbanNest PG. All Rights Reserved.
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+function sendWhatsApp(event){
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const room = document.getElementById("room").value;
+    const date = document.getElementById("date").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappNumber = "91XXXXXXXXXX";
+
+    const text =
+    "Hello, I am interested in your PG.%0A%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Room: " + room + "%0A" +
+    "Joining Date: " + date + "%0A" +
+    "Message: " + message;
+
+    window.open(
+        "https://wa.me/" + whatsappNumber + "?text=" + text,
+        "_blank"
+    );
+}
+
+</script>
+
+</body>
+</html>
